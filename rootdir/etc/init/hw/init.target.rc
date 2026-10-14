@@ -328,5 +328,9 @@ service vendor.sensors.qti /vendor/bin/sensors.qti
     disabled
 
 on boot
+    # Charging control: the Lineage health HAL runs as system
+    chown system system /sys/class/power_supply/battery/battery_charging_enabled
+    chmod 0664 /sys/class/power_supply/battery/battery_charging_enabled
+
     write /sys/devices/soc.0/78b8000.i2c/i2c-4/4-0020/input/input0/fw_name PR1702898-s3528t_00260005_00380008.img
     write /sys/devices/soc.0/78b8000.i2c/i2c-4/4-0020/input/input0/update_fw 1
