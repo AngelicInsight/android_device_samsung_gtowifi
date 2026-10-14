@@ -141,9 +141,19 @@ BOARD_MKBOOTIMG_ARGS += --board $(TARGET_BOOTLOADER_BOARD_NAME)
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
-TARGET_KERNEL_SOURCE := kernel/samsung/sdm429
-TARGET_KERNEL_CONFIG := lineageos_gtowifi_defconfig
-TARGET_KERNEL_VERSION := 4.9
+TARGET_KERNEL_SOURCE := kernel/samsung/gtowifi
+TARGET_KERNEL_CONFIG := \
+    vendor/msm8937-perf_defconfig \
+    vendor/common.config \
+    vendor/debugfs.config \
+    vendor/feature/android-12.config \
+    vendor/feature/compat-vdso.config \
+    vendor/feature/erofs.config \
+    vendor/feature/lmkd.config \
+    vendor/samsung/gtowifi.config \
+    vendor/msm-clk.config \
+    vendor/feature/lineageos.config
+TARGET_KERNEL_VERSION := 4.19
 
 BOARD_CUSTOM_BOOTIMG := true
 BOARD_CUSTOM_BOOTIMG_MK := $(DEVICE_PATH)/mkbootimg.mk
@@ -160,6 +170,7 @@ TARGET_USES_ION := true
 # Properties
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
+TARGET_PRODUCT_PROP += $(DEVICE_PATH)/product.prop
 
 # Recovery
 BOARD_HAS_DOWNLOAD_MODE := true
@@ -180,7 +191,6 @@ BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
 # Treble
 BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
 PRODUCT_FULL_TREBLE_OVERRIDE := true
-PRODUCT_VENDOR_MOVE_ENABLED := true
 
 # Updater
 AB_OTA_UPDATER := false
@@ -192,9 +202,9 @@ include vendor/samsung/gtowifi/BoardConfigVendor.mk
 BOARD_HAS_QCOM_WLAN := true
 BOARD_WLAN_DEVICE := qcwcn
 BOARD_WPA_SUPPLICANT_DRIVER := NL80211
-BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
+BOARD_WPA_SUPPLICANT_PRIVATE_LIB := //hardware/qcom-caf/wlan/qcwcn:lib_driver_cmd_qcwcn
 BOARD_HOSTAPD_DRIVER := NL80211
-BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
+BOARD_HOSTAPD_PRIVATE_LIB := //hardware/qcom-caf/wlan/qcwcn:lib_driver_cmd_qcwcn
 WIFI_DRIVER_FW_PATH_STA := "sta"
 WIFI_DRIVER_FW_PATH_AP := "ap"
 WIFI_AVOID_IFACE_RESET_MAC_CHANGE := true

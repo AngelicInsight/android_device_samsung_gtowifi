@@ -4,7 +4,7 @@
     "target_path": "hardware/samsung"
   },
   {
-    "repository": "android_kernel_samsung_sdm429",
-    "target_path": "kernel/samsung/sdm429"
+    "repository": "android_kernel_samsung_gtowifi",
+    "target_path": "kernel/samsung/gtowifi"
   }
 ]

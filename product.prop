@@ -1,0 +1,4 @@
+# BPF
+# Android 16's BPF loader rejects 4.19; report a kernel it accepts, as
+# the other 4.19 msm8937 devices (mithorium-common) do.
+ro.bpf.kver_override=5.10.239
