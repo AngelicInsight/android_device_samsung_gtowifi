@@ -158,6 +158,7 @@ TARGET_KERNEL_CONFIG := \
     vendor/samsung/gtowifi.config \
     vendor/msm-clk.config \
     vendor/feature/lineageos.config
+TARGET_KERNEL_CLANG_VERSION := r563880c
 TARGET_KERNEL_VERSION := 4.19
 
 BOARD_CUSTOM_BOOTIMG := true
@@ -189,6 +190,7 @@ TARGET_RELEASETOOLS_EXTENSIONS := $(DEVICE_PATH)/releasetools
 VENDOR_SECURITY_PATCH := 2022-07-01
 
 # SELinux
+include device/lineage/sepolicy/libion/sepolicy.mk
 include device/qcom/sepolicy-legacy-um/SEPolicy.mk
 PRODUCT_PRIVATE_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/private
 BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor

@@ -76,10 +76,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/component-overrides.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sysconfig/component-overrides.xml
 
-# Configstore
-PRODUCT_PACKAGES += \
-    disable_configstore
-
 # Dalvik
 $(call inherit-product, frameworks/native/build/tablet-7in-hdpi-1024-dalvik-heap.mk)
 
@@ -102,6 +98,15 @@ PRODUCT_PACKAGES += \
     libgralloc.qti \
     vulkan.pastel \
     vendor.qti.hardware.memtrack-service
+
+# Display service (the camera HAL listens for vsync through it)
+PRODUCT_PACKAGES += \
+    lineage.frameworks.displayservice@1.0.vendor
+
+$(call soong_config_set_bool,surfaceflinger,register_displayservice,true)
+
+# ION: the blobs and the 4.19 kernel use the legacy ION interface
+$(call soong_config_set_bool,libion,legacy_impl,true)
 
 # Health
 PRODUCT_PACKAGES += \
