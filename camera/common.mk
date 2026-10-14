@@ -1,9 +1,5 @@
 common_deps :=
 kernel_includes :=
 
-ifeq ($(call is-vendor-board-platform,QCOM),true)
-ifeq ($(TARGET_COMPILE_WITH_MSM_KERNEL),true)
-    common_deps += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr
-    kernel_includes += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include
-endif
-endif
+# Kernel UAPI headers come from gtowifi_camera_kernel_headers (kernel-headers/);
+# the KERNEL_OBJ/usr directory these used to point at is gone in LineageOS 23.

@@ -117,6 +117,7 @@ LOCAL_MODULE:= mm-qcamera-app
 LOCAL_VENDOR_MODULE := true
 include $(SDCLANG_COMMON_DEFS)
 
+LOCAL_HEADER_LIBRARIES += gtowifi_camera_kernel_headers
 include $(BUILD_EXECUTABLE)
 
 # Build tuning library
@@ -235,6 +236,7 @@ LOCAL_MODULE:= libmm-qcamera
 LOCAL_VENDOR_MODULE := true
 include $(SDCLANG_COMMON_DEFS)
 
+LOCAL_HEADER_LIBRARIES += gtowifi_camera_kernel_headers
 include $(BUILD_SHARED_LIBRARY)
 
 LOCAL_PATH := $(OLD_LOCAL_PATH)

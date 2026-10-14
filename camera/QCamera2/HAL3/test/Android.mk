@@ -24,8 +24,6 @@ ifneq ($(TARGET_KERNEL_VERSION),$(filter $(TARGET_KERNEL_VERSION),3.18 4.4 4.9))
   endif
 endif
 
-LOCAL_ADDITIONAL_DEPENDENCIES += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr
-LOCAL_C_INCLUDES += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include
 LOCAL_C_INCLUDES+= $(kernel_includes)
 
 LOCAL_C_INCLUDES += \
@@ -65,4 +63,5 @@ LOCAL_CFLAGS += -Wall -Wextra -Werror
 
 LOCAL_CFLAGS += -std=c++14 -std=gnu++1z
 
+LOCAL_HEADER_LIBRARIES += gtowifi_camera_kernel_headers
 include $(BUILD_EXECUTABLE)

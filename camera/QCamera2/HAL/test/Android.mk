@@ -47,10 +47,8 @@ LOCAL_C_INCLUDES += \
     external/skia/include/images \
     $(TARGET_OUT_HEADERS)/qcom/display \
     $(LOCAL_PATH)/../stack/common \
-    $(LOCAL_PATH)/../stack/mm-camera-interface/inc \
-    $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include
+    $(LOCAL_PATH)/../stack/mm-camera-interface/inc
 
-LOCAL_ADDITIONAL_DEPENDENCIES := $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr
 
 LOCAL_MODULE:= camera_test
 LOCAL_VENDOR_MODULE := true
@@ -70,4 +68,5 @@ endif
 
 endif
 
+LOCAL_HEADER_LIBRARIES += gtowifi_camera_kernel_headers
 #include $(BUILD_EXECUTABLE)

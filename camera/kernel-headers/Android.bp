@@ -1,0 +1,10 @@
+// Kernel UAPI headers for the camera HAL, from `make headers_install` of the
+// Samsung 4.9 kernel (LineageOS/android_kernel_samsung_sdm429 lineage-22.2,
+// 56a0722be), trimmed to what the HAL includes. The 4.19 kernel keeps this
+// camera and legacy ION ABI for the vendor camera blobs, and its own UAPI has
+// only the new ION interface, so the HAL builds against these instead.
+cc_library_headers {
+    name: "gtowifi_camera_kernel_headers",
+    vendor: true,
+    export_include_dirs: ["."],
+}
