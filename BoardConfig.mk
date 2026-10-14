@@ -214,4 +214,12 @@ WIFI_DRIVER_FW_PATH_STA := "sta"
 WIFI_DRIVER_FW_PATH_AP := "ap"
 WIFI_AVOID_IFACE_RESET_MAC_CHANGE := true
 WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY := true
+# As on mithorium-common (also built-in prima on 4.19): a single mode with
+# id 3, which matches the mode the 23.2 HAL reloads from the driver, and the
+# HAL kickstarts prima through fwpath, which it no longer does itself for
+# id-3 modes.
+WIFI_HAL_INTERFACE_COMBINATIONS := {{{STA}, 1}}
+WIFI_DRIVER_STATE_CTRL_PARAM := "/sys/module/wlan/parameters/fwpath"
+WIFI_DRIVER_STATE_ON := ""
+WIFI_DRIVER_STATE_OFF := ""
 WPA_SUPPLICANT_VERSION := VER_0_8_X
