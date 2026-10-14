@@ -63,6 +63,7 @@ ifneq ($(TARGET_KERNEL_VERSION),$(filter $(TARGET_KERNEL_VERSION),3.18 4.4 4.9))
 LOCAL_SHARED_LIBRARIES += libion
 endif
 LOCAL_HEADER_LIBRARIES += gtowifi_camera_kernel_headers
+LOCAL_CFLAGS += -Wno-unused-but-set-variable
 include $(BUILD_EXECUTABLE)
 
 
@@ -121,6 +122,7 @@ LOCAL_SHARED_LIBRARIES += libion
 endif
 
 LOCAL_HEADER_LIBRARIES += gtowifi_camera_kernel_headers
+LOCAL_CFLAGS += -Wno-unused-but-set-variable
 include $(BUILD_EXECUTABLE)
 
 LOCAL_PATH := $(OLD_LOCAL_PATH)

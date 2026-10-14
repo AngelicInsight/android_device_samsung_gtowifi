@@ -64,4 +64,5 @@ LOCAL_CFLAGS += -Wall -Wextra -Werror
 LOCAL_CFLAGS += -std=c++14 -std=gnu++1z
 
 LOCAL_HEADER_LIBRARIES += gtowifi_camera_kernel_headers
+LOCAL_CFLAGS += -Wno-unused-but-set-variable
 include $(BUILD_EXECUTABLE)

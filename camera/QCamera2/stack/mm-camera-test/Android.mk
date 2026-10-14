@@ -118,6 +118,7 @@ LOCAL_VENDOR_MODULE := true
 include $(SDCLANG_COMMON_DEFS)
 
 LOCAL_HEADER_LIBRARIES += gtowifi_camera_kernel_headers
+LOCAL_CFLAGS += -Wno-unused-but-set-variable
 include $(BUILD_EXECUTABLE)
 
 # Build tuning library
@@ -237,6 +238,7 @@ LOCAL_VENDOR_MODULE := true
 include $(SDCLANG_COMMON_DEFS)
 
 LOCAL_HEADER_LIBRARIES += gtowifi_camera_kernel_headers
+LOCAL_CFLAGS += -Wno-unused-but-set-variable
 include $(BUILD_SHARED_LIBRARY)
 
 LOCAL_PATH := $(OLD_LOCAL_PATH)

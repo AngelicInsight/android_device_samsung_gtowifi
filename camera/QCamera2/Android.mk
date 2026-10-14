@@ -236,6 +236,7 @@ LOCAL_MODULE_TAGS := optional
 
 LOCAL_32_BIT_ONLY := $(BOARD_QTI_CAMERA_32BIT_ONLY)
 LOCAL_HEADER_LIBRARIES += gtowifi_camera_kernel_headers
+LOCAL_CFLAGS += -Wno-unused-but-set-variable
 include $(BUILD_SHARED_LIBRARY)
 
 include $(CLEAR_VARS)
