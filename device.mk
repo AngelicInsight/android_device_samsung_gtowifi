@@ -110,9 +110,8 @@ $(call soong_config_set_bool,libion,legacy_impl,true)
 
 # Health
 PRODUCT_PACKAGES += \
-    android.hardware.health@2.1-impl:64 \
-    android.hardware.health@2.1-impl.recovery \
-    android.hardware.health@2.1-service
+    android.hardware.health-service.qti \
+    android.hardware.health-service.qti_recovery
 
 # Charging control (Settings > Battery > Charging control). The smb5
 # charger's battery_charging_enabled switch stops charging the battery
