@@ -105,6 +105,9 @@ PRODUCT_PACKAGES += \
 
 $(call soong_config_set_bool,surfaceflinger,register_displayservice,true)
 
+# Gralloc: the display HAL only provides mapper 2.0; let libui load it
+$(call soong_config_set_bool,libui,legacy_gralloc,true)
+
 # ION: the blobs and the 4.19 kernel use the legacy ION interface
 $(call soong_config_set_bool,libion,legacy_impl,true)
 
