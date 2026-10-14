@@ -94,6 +94,11 @@ BOARD_DTBOIMG_PARTITION_SIZE := 8388608
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 0x04000000
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 4076863488
 BOARD_VENDORIMAGE_PARTITION_SIZE := 796917760
+
+# There is no metadata partition. This only makes the system image ship a
+# /metadata mountpoint (system/core/rootdir/create_root_structure.mk), which
+# init.target.rc backs with tmpfs for Android 16's aconfig storage.
+BOARD_USES_METADATA_PARTITION := true
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_FLASH_BLOCK_SIZE := 131072 # (BOARD_KERNEL_PAGESIZE * 64)
 BOARD_HAS_LARGE_FILESYSTEM := true

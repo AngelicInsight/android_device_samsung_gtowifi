@@ -1,2 +1,6 @@
 allow init proc_last_kmsg:file setattr;
 allow init efs_file:dir mounton;
+
+# /metadata on tmpfs (see init.target.rc)
+allow init metadata_file:dir mounton;
+allow init tmpfs:filesystem relabelfrom;
